@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sierra Explore - Tourist App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #map { height: 400px; }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Sierra Explore</h1>
+            <div class="space-x-4">
+                <a href="#" class="hover:text-blue-200" id="loginBtn">Login</a>
+                <a href="#" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-100" id="signupBtn">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-4">
+        <!-- Hero Section -->
+        <section class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-3xl font-bold text-blue-600 mb-4">Welcome to Sierra Explore</h2>
+            <p class="text-gray-700 mb-6">
+                Your ultimate guide to exploring Sierra Leone. Find hotels, events, car rentals, housing, and translators all in one place.
+            </p>
+            <div class="flex space-x-4">
+                <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700" id="exploreBtn">Explore Now</button>
+                <button class="border border-blue-600 text-blue-600 px-6 py-2 rounded hover:bg-blue-50" id="learnMoreBtn">Learn More</button>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">Explore Sierra Leone</h2>
+            <div id="map" class="rounded-lg"></div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="mb-6">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">Categories</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                    <i class="fas fa-hotel text-3xl text-blue-600 mb-2"></i>
+                    <h3 class="font-semibold">Hotels & Motels</h3>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                    <i class="fas fa-calendar-alt text-3xl text-blue-600 mb-2"></i>
+                    <h3 class="font-semibold">Events</h3>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                    <i class="fas fa-car text-3xl text-blue-600 mb-2"></i>
+                    <h3 class="font-semibold">Car Rentals</h3>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                    <i class="fas fa-home text-3xl text-blue-600 mb-2"></i>
+                    <h3 class="font-semibold">Housing</h3>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                    <i class="fas fa-language text-3xl text-blue-600 mb-2"></i>
+                    <h3 class="font-semibold">Translators</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login/Signup Modal (hidden by default) -->
+        <div id="authModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+            <div class="bg-white rounded-lg p-6 w-full max-w-md">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold" id="modalTitle">Login</h3>
+                    <button id="closeModal" class="text-gray-500 hover:text-gray-700">&times;</button>
+                </div>
+                <form id="authForm">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="email">Email</label>
+                        <input type="email" id="email" class="w-full p-2 border rounded">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="password">Password</label>
+                        <input type="password" id="password" class="w-full p-2 border rounded">
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">Submit</button>
+                </form>
+                <p class="text-center mt-4">
+                    <a href="#" class="text-blue-600 hover:underline" id="switchAuth">Don't have an account? Sign Up</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
